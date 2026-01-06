@@ -1,0 +1,310 @@
+/* ============================================
+   GLOBAL STYLES - PwC Branded Theme
+   ============================================ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    /* Primary Colors */
+    --color-primary: #D04A02;
+    --color-primary-hover: #B84102;
+    --color-secondary: #2D2D2D;
+    --color-secondary-hover: #404040;
+    
+    /* Status Colors */
+    --color-open: #4A90D9;
+    --color-in-progress: #FFB347;
+    --color-completed: #5CB85C;
+    --color-on-hold: #9E9E9E;
+    --color-cancelled: #D9534F;
+    --color-overdue: #FF6B6B;
+    
+    /* Priority Colors */
+    --color-critical: #DC3545;
+    --color-high: #FD7E14;
+    --color-medium: #FFC107;
+    --color-low: #28A745;
+    
+    /* Background Colors */
+    --bg-primary: #FFFFFF;
+    --bg-secondary: #F8F9FA;
+    --bg-tertiary: #E9ECEF;
+    
+    /* Text Colors */
+    --text-primary: #212529;
+    --text-secondary: #6C757D;
+    --text-muted: #ADB5BD;
+    
+    /* Border Colors */
+    --border-color: #DEE2E6;
+    --border-color-dark: #CED4DA;
+    
+    --background: #F8F9FA;
+    --foreground: #212529;
+}
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ============================================
+   SCROLLBAR STYLES
+   ============================================ */
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-tertiary);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--text-muted);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-secondary);
+}
+
+/* ============================================
+   STATUS BADGE STYLES
+   ============================================ */
+
+.status-open {
+    background-color: rgba(74, 144, 217, 0.15);
+    color: #4A90D9;
+    border-color: rgba(74, 144, 217, 0.3);
+}
+
+.status-inprogress {
+    background-color: rgba(255, 179, 71, 0.15);
+    color: #E09500;
+    border-color: rgba(255, 179, 71, 0.3);
+}
+
+.status-completed {
+    background-color: rgba(92, 184, 92, 0.15);
+    color: #5CB85C;
+    border-color: rgba(92, 184, 92, 0.3);
+}
+
+.status-onhold {
+    background-color: rgba(158, 158, 158, 0.15);
+    color: #757575;
+    border-color: rgba(158, 158, 158, 0.3);
+}
+
+.status-cancelled {
+    background-color: rgba(217, 83, 79, 0.15);
+    color: #D9534F;
+    border-color: rgba(217, 83, 79, 0.3);
+}
+
+/* ============================================
+   PRIORITY BADGE STYLES
+   ============================================ */
+
+.priority-critical {
+    background-color: rgba(220, 53, 69, 0.15);
+    color: #DC3545;
+}
+
+.priority-high {
+    background-color: rgba(253, 126, 20, 0.15);
+    color: #FD7E14;
+}
+
+.priority-medium {
+    background-color: rgba(255, 193, 7, 0.15);
+    color: #D39E00;
+}
+
+.priority-low {
+    background-color: rgba(40, 167, 69, 0.15);
+    color: #28A745;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
+}
+
+.animate-slide-in {
+    animation: slideIn 0.3s ease-out;
+}
+
+.animate-pulse-slow {
+    animation: pulse 2s infinite;
+}
+
+/* ============================================
+   TABLE STYLES
+   ============================================ */
+
+.table-container {
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+.table-header {
+    background-color: var(--bg-tertiary);
+}
+
+.table-row:hover {
+    background-color: rgba(208, 74, 2, 0.05);
+}
+
+.table-row-clickable {
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.table-row-clickable:hover {
+    background-color: rgba(208, 74, 2, 0.08);
+}
+
+/* ============================================
+   CARD STYLES
+   ============================================ */
+
+.card {
+    background-color: var(--bg-primary);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card-clickable:hover {
+    border-color: var(--color-primary);
+    cursor: pointer;
+}
+
+/* ============================================
+   STATS CARD STYLES
+   ============================================ */
+
+.stats-card {
+    border-left: 4px solid transparent;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stats-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.stats-card-primary {
+    border-left-color: var(--color-primary);
+}
+
+.stats-card-success {
+    border-left-color: var(--color-completed);
+}
+
+.stats-card-warning {
+    border-left-color: var(--color-in-progress);
+}
+
+.stats-card-danger {
+    border-left-color: var(--color-overdue);
+}
+
+.stats-card-info {
+    border-left-color: var(--color-open);
+}
+
+/* ============================================
+   LOADING SPINNER
+   ============================================ */
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--bg-tertiary);
+    border-top-color: var(--color-primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ============================================
+   RESPONSIVE UTILITIES
+   ============================================ */
+
+@media (max-width: 768px) {
+    .hide-mobile {
+        display: none !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .hide-desktop {
+        display: none !important;
+    }
+}
